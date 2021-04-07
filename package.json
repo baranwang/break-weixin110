@@ -1,0 +1,35 @@
+{
+  "name": "break-weixin110",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "preversion": "git add -A",
+    "postversion": "git push & git push --tag"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "he": "^1.2.0",
+    "is-mobile": "^3.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^21.3.3"
+  },
+  "readme": "https://github.com/baranwang/break-weixin110/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/baranwang/break-weixin110/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baranwang/break-weixin110"
+  },
+  "licenses": [
+    {
+      "type": "GNU General Public License v3.0",
+      "url": "https://github.com/baranwang/break-weixin110/blob/main/LICENSE"
+    }
+  ]
+}
