@@ -2,7 +2,7 @@
 #!desc=突破微信封禁 URL
 
 [URL Rewrite]
-^http(s)?://weixin110.qq.com(.*) <%= base %><% if(type) { %>/<%= type %><% } %>/weixin110.qq.com$2 302
+^http(s)?://weixin110.qq.com/cgi-bin/mmspamsupport-bin/newredirectconfirmcgi(.*) <%= base %><% if(type) { %>/<%= type %><% } %>/weixin110.qq.com/cgi-bin/mmspamsupport-bin/newredirectconfirmcgi$2 302
 
 [MITM]
 hostname = %INSERT% weixin110.qq.com
