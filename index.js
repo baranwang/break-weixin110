@@ -48,14 +48,16 @@ app.get('/:type?/weixin110.qq.com/*', async (req, res) => {
   );
   url.searchParams.set('main_type', '1');
   let realUrl = url.href;
-  const { data } = await axios.get(url.href);
-  if (!data) res.redirect(url.href);
+  const { data } = await axios.get(realUrl);
+  if (!data) res.redirect(realUrl);
   const $ = cheerio.load(data);
-  const cgiDataText = $('body script:not([src])')
-    .html()
-    .replace(new RegExp('(.*)var(\\s)?cgiData(\\s)?=(\\s)'), 'foobar=');
-  const cgiData = eval(cgiDataText);
-  realUrl = cgiData.url ? he.decode(cgiData.url) : realUrl;
+  try {
+    const cgiDataText = $('body script:not([src])')
+      .html()
+      .replace(new RegExp('(.*)var(\\s)?cgiData(\\s)?=(\\s)'), 'foobar=');
+    const cgiData = eval(cgiDataText);
+    realUrl = cgiData.url ? he.decode(cgiData.url) : realUrl;
+  } catch (error) { }
   if (isMobile({ ua })) {
     // 处理淘宝
     const taobaoDomainList = [
